@@ -1,0 +1,50 @@
+{
+  "model": "Nemotron-3 Nano 30B-A3B",
+  "model_hf_id": "lmstudio-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-8bit",
+  "hardware": {
+    "chip": "Apple M4 Pro",
+    "memory_gb": 48,
+    "memory_bandwidth_gbs": 273,
+    "gpu_cores": 16,
+    "nvme_read_gbs": 7.4,
+    "usable_memory_gb": 38.5
+  },
+  "config": {
+    "max_tokens": 200,
+    "temperature": 0.7,
+    "num_prompts": 3
+  },
+  "results": {
+    "avg_tokens_per_sec": 8.6,
+    "total_output_tokens": 600,
+    "total_time_s": 70.04,
+    "peak_memory_gb": 31.35,
+    "per_prompt": [
+      {
+        "response": "The user asks: \"Explain the key innovations in Apple's M4 chip architecture.\" Need to provide a thorough answer. No disallowed content. Just provide info. Should be up-to-date as of knowledge cutoff 2024-06, but user likely wants recent info. I can discuss M4 as part of Apple Silicon, improvements over M3, new GPU cores, enhanced Neural Engine, unified memory, performance improvements, new media engine, power efficiency, etc. Provide bullet points. Also mention architecture details: 3nm process, increased transistor count, CPU cores (performance + efficiency), new caching hierarchy, improved branch prediction, etc. Also talk about integrated memory controller, support for LPDDR5X, etc. Provide context: Apple\u2019s transition to custom silicon, improvements in AI/ML, etc.\n\nWill comply.\n</think>\n**Apple\u202fM4 \u2013 What\u2019s new and why it matters**\n\nApple\u2019s M4 is the latest generation of the company\u2019s custom",
+        "input_tokens": 29,
+        "output_tokens": 200,
+        "total_time_s": 62.07,
+        "tokens_per_sec": 3.2,
+        "peak_memory_gb": 31.34
+      },
+      {
+        "response": "We need to write a Python function to find the longest common subsequence (LCS) of two strings. Provide code, explanation. Probably include DP solution and reconstruction. Should be straightforward. Provide function that returns LCS string. Maybe also return length. Provide example usage. Ensure clarity.\n</think>\nBelow is a clean, well\u2011documented implementation that\n\n* computes the **Longest Common Subsequence (LCS)** of two strings,\n* runs in `O(m\u00b7n)` time and `O(m\u00b7n)` auxiliary space (where `m` and `n` are the lengths of the inputs),\n* reconstructs the actual subsequence (not just its length), and\n* works for any Unicode strings.\n\n```python\ndef longest_common_subsequence(s1: str, s2: str) -> str:\n    \"\"\"\n    Return the longest common subsequence (LCS) of `s1` and `s2`.\n\n    The LCS is a sequence that appears in",
+        "input_tokens": 31,
+        "output_tokens": 200,
+        "total_time_s": 3.99,
+        "tokens_per_sec": 50.2,
+        "peak_memory_gb": 31.35
+      },
+      {
+        "response": "We need to compare transformer and Mamba architectures for language modeling, focusing on computational complexity. Provide specifics: asymptotic, per-layer complexity, time and memory, sequence length scaling, constant factors, etc. Also mention differences like linear attention, state-space model, recurrent, etc. Provide tables. Mention training and inference complexities, GPU utilization. Also discuss practical considerations. Provide citations maybe. Should be thorough.\n</think>\n## TL;DR  \n\n| Property | Transformer (self\u2011attention) | Mamba (SSM\u2011based) |\n|----------|-----------------------------|-------------------|\n| **Per\u2011layer time complexity** | **O(N\u00b2\u00b7d)** for a sequence of length *N* and hidden dimension *d* (quadratic in sequence length) | **O(N\u00b7d\u00b2)** (linear in *N*) \u2013 the dominant cost is a series of matrix\u2011vector multiplies, not a full attention matrix |\n| **Per\u2011layer memory (activ",
+        "input_tokens": 32,
+        "output_tokens": 200,
+        "total_time_s": 3.98,
+        "tokens_per_sec": 50.3,
+        "peak_memory_gb": 31.35
+      }
+    ]
+  },
+  "load_time_s": 2254.23
+}
