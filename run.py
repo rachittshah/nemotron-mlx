@@ -71,7 +71,7 @@ def load_model(model_key: str):
     print()
 
     t0 = time.perf_counter()
-    model, tokenizer = load(hf_id)
+    model, tokenizer = load(hf_id, tokenizer_config={"trust_remote_code": True})
     load_time = time.perf_counter() - t0
 
     mem = get_memory_usage_gb()

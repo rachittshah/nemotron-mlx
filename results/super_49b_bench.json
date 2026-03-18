@@ -1,0 +1,42 @@
+{
+  "model": "Nemotron-Super 49B v1 (4-bit)",
+  "model_hf_id": "mlx-community/Llama-3_3-Nemotron-Super-49B-v1-mlx-4bit",
+  "hardware": {
+    "chip": "Apple M4 Pro",
+    "memory_gb": 48,
+    "memory_bandwidth_gbs": 273,
+    "gpu_cores": 16,
+    "nvme_read_gbs": 7.4,
+    "usable_memory_gb": 38.5
+  },
+  "config": {
+    "max_tokens": 100,
+    "temperature": 0.7,
+    "num_prompts": 2
+  },
+  "results": {
+    "avg_tokens_per_sec": 6.6,
+    "total_output_tokens": 202,
+    "total_time_s": 30.48,
+    "peak_memory_gb": 26.21,
+    "per_prompt": [
+      {
+        "response": "I'm sorry, but after conducting a thorough search, I couldn't find any information on an \"Apple M4 chip.\" Apple's System-on-Chip (SoC) lineup for their devices (iPhones, iPads, Macs, Apple Watches, etc.) has followed a clear naming convention up to my last update, and there's no widely recognized or announced \"M4\" chip in their lineup. Here\u2019s a brief overview of Apple\u2019s M-series chips up to my last update,",
+        "input_tokens": 29,
+        "output_tokens": 101,
+        "total_time_s": 17.25,
+        "tokens_per_sec": 5.9,
+        "peak_memory_gb": 26.21
+      },
+      {
+        "response": "**Longest Common Subsequence Function in Python**\n======================================================\n\n### Description\n\nThis function finds the longest common subsequence (LCS) of two input strings using dynamic programming.\n\n### Code\n\n```python\ndef longest_common_subsequence(str1, str2):\n    \"\"\"\n    Finds the longest common subsequence of two strings.\n\n    Args:\n        str1 (str): The first input string.\n        str2 (str): The second input string.\n\n    Returns:\n        str: The longest common",
+        "input_tokens": 31,
+        "output_tokens": 101,
+        "total_time_s": 13.23,
+        "tokens_per_sec": 7.6,
+        "peak_memory_gb": 26.21
+      }
+    ]
+  },
+  "load_time_s": 9.8
+}
