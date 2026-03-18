@@ -163,7 +163,7 @@ def run_flash_inference(prompt: str, cfg: FlashConfig):
     print()
 
     try:
-        mx.metal.reset_peak_memory()
+        mx.reset_peak_memory()
     except Exception:
         pass
 
@@ -193,7 +193,7 @@ def run_flash_inference(prompt: str, cfg: FlashConfig):
     print(f"  Memory:     {mem_after_gen['used_pct']:.0f}% used")
     print(f"  Swap:       {mem_after_gen['swap_used_gb']:.1f} GB")
     try:
-        peak = mx.metal.get_peak_memory() / (1024**3)
+        peak = mx.get_peak_memory() / (1024**3)
         print(f"  Peak Metal: {peak:.1f} GB")
     except Exception:
         pass
