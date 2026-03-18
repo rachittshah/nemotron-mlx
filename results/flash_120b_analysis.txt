@@ -1,0 +1,17 @@
+============================================================
+LLM-in-a-Flash Memory Analysis: Nemotron-3 Super 120B-A12B
+============================================================
+
+System RAM:              48.0 GB
+Available now:           20.4 GB
+
+Total model (Q4):        55.9 GB
+Active per token (12B):  5.6 GB
+Shared layers:           3.9 GB
+Effective working set:   9.5 GB
+Cold experts (on SSD):   46.4 GB
+
+FEASIBLE: Working set fits with 10.9 GB headroom
+Cold experts (46.4 GB) served via NVMe mmap (~7.4 GB/s)
+Expected: ~3-8 tok/s after warmup (expert cache stabilizes)
+
