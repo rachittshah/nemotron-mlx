@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+models/
+*.gguf
+*.safetensors
+.DS_Store
+experiment_data/
+artifacts/
