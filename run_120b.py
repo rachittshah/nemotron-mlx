@@ -238,7 +238,7 @@ def build_llama_args(model_path: Path, mode: str = "server",
         "--cpu-moe",                      # MoE experts to CPU (dedicated flag)
         "--cache-type-k", "q8_0",        # KV-cache: keys at Q8
         "--cache-type-v", "q4_0",        # KV-cache: values at Q4
-        "-fa",                           # flash attention
+        "-fa", "on",                      # flash attention
         "-c", str(context),              # context length
         "-b", "4096",                    # batch size
         "-ub", "4096",                   # ubatch size

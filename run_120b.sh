@@ -114,6 +114,7 @@ run_server() {
         --cache-type-k q8_0 \
         --cache-type-v q4_0 \
         -fa on \
+        --single-turn \
         -c "$CONTEXT_LENGTH" \
         -b 4096 -ub 4096 \
         --host 0.0.0.0 \
@@ -135,6 +136,7 @@ run_cli() {
         --cache-type-k q8_0 \
         --cache-type-v q4_0 \
         -fa on \
+        --single-turn \
         -c "$CONTEXT_LENGTH" \
         -n 256 \
         -p "$prompt"
