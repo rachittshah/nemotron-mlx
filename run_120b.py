@@ -235,7 +235,7 @@ def build_llama_args(model_path: Path, mode: str = "server",
         cmd,
         "-m", str(model_path),
         "-ngl", "99",                    # offload all layers to GPU
-        "-ot", "exps=CPU",               # MoE experts to CPU
+        "--cpu-moe",                      # MoE experts to CPU (dedicated flag)
         "--cache-type-k", "q8_0",        # KV-cache: keys at Q8
         "--cache-type-v", "q4_0",        # KV-cache: values at Q4
         "-fa",                           # flash attention

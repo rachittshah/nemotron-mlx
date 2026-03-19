@@ -110,7 +110,7 @@ run_server() {
     llama-server \
         -m "$model_file" \
         -ngl 99 \
-        -ot "exps=CPU" \
+        --cpu-moe \
         --cache-type-k q8_0 \
         --cache-type-v q4_0 \
         -fa on \
@@ -131,7 +131,7 @@ run_cli() {
     llama-cli \
         -m "$model_file" \
         -ngl 99 \
-        -ot "exps=CPU" \
+        --cpu-moe \
         --cache-type-k q8_0 \
         --cache-type-v q4_0 \
         -fa on \

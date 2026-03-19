@@ -60,7 +60,7 @@ paged in on demand. This is exactly what Apple's "LLM in a Flash" paper describe
 
 ### Approach 1: llama.cpp + Expert Offloading (BEST)
 
-**How it works:** llama.cpp's `-ot "exps=CPU"` flag places MoE expert weights on
+**How it works:** llama.cpp's `--cpu-moe` flag places MoE expert weights on
 the CPU side of unified memory while keeping attention layers on Metal GPU. The
 CPU-side weights are mmap'd, so macOS can page cold experts to NVMe swap.
 
@@ -80,7 +80,7 @@ sudo sysctl iogpu.wired_limit_mb=45056  # 44 GB for Metal, 4 GB for OS
 llama-server \
   -m bartowski_Nemotron-3-Super-120B-A12B-IQ2_XXS.gguf \
   -ngl 99 \
-  -ot "exps=CPU" \
+  --cpu-moe \
   --cache-type-k q8_0 --cache-type-v q4_0 \
   -fa on \
   -c 8192 \
@@ -167,7 +167,7 @@ sudo sysctl iogpu.wired_limit_mb=45056
 
 ### MoE Expert Offloading
 ```
--ot "exps=CPU"        # All experts to CPU
+--cpu-moe        # All experts to CPU
 --n-cpu-moe 30        # Offload 30 layers' experts to CPU
 ```
 - Expert weights computed by CPU instead of Metal GPU
@@ -204,7 +204,7 @@ sudo sysctl iogpu.wired_limit_mb=45056
 llama-server \
   -m nvidia_Nemotron-3-Super-120B-A12B-IQ2_XXS.gguf \
   -ngl 99 \
-  -ot "exps=CPU" \
+  --cpu-moe \
   --cache-type-k q8_0 --cache-type-v q4_0 \
   -fa on \
   -c 8192 \
