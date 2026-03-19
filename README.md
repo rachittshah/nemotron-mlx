@@ -43,6 +43,53 @@ python flash_loader.py --analyze-only
 
 ## Architecture
 
+```mermaid
+graph TD
+    subgraph Input
+        P[Prompt] --> R{Model Router}
+    end
+
+    subgraph "Nemotron-3 Nano 30B-A3B · mlx-lm"
+        R -->|"fast · 69 tok/s"| N[Nano 30B]
+        N --> M2N[Mamba-2 Layers x23]
+        N --> AN[Attention Layers x6]
+        M2N --> MoEN["LatentMoE · 128 experts\n5 active → 3B params/token"]
+        AN --> MoEN
+        MoEN --> ON[Response]
+    end
+
+    subgraph "Nemotron-Super 49B · mlx-lm"
+        R -->|"quality · 6.6 tok/s"| S49[Super 49B]
+        S49 --> TF[Transformer Layers]
+        TF --> O49[Response]
+    end
+
+    subgraph "Nemotron-3 Super 120B · llama.cpp"
+        R -->|"max capability · 5-15 tok/s"| S120[Super 120B]
+        S120 --> M2S[Mamba-2 + Attention]
+        S120 --> MoES["LatentMoE · 12B active / 120B total"]
+
+        subgraph "Memory Management"
+            MoES -->|"hot experts"| GPU["Metal GPU\n~13 GB"]
+            MoES -->|"cold experts"| CPU["CPU mmap\n~40 GB"]
+            CPU -->|"page fault"| SSD["NVMe SSD\n7.4 GB/s"]
+        end
+
+        GPU --> O120[Response]
+    end
+
+    subgraph "48 GB Unified Memory"
+        direction LR
+        OS["OS 8 GB"] ~~~ MODEL["Model\n+ KV Cache"] ~~~ FREE["Headroom"]
+    end
+
+    style GPU fill:#34d399,color:#000
+    style CPU fill:#fbbf24,color:#000
+    style SSD fill:#f87171,color:#000
+    style MoEN fill:#818cf8,color:#fff
+    style MoES fill:#818cf8,color:#fff
+```
+
 ### Nemotron-3 Family (March 2026)
 
 **Not Llama-based.** The Nemotron-3 architecture is a **hybrid Mamba-2 + Transformer + LatentMoE**:
