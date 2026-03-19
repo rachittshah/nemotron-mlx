@@ -8,3 +8,4 @@ models/
 .DS_Store
 experiment_data/
 artifacts/
+models/
